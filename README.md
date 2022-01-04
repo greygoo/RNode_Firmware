@@ -85,6 +85,16 @@ rnode.send("Hello World!")
 ## Promiscuous Mode and LoRa Sniffing
 RNode can be put into LoRa promiscuous mode, which will dump raw LoRa frames to the host. Raw LoRa frames can also be sent in this mode, and have the standard LoRa payload size of 255 bytes. To enable promiscuous mode send the "Promiscuous" command to the board, or use one of the programming libraries. You can also use the example program [LoRaMon](https://github.com/markqvist/LoRaMon) for an easy to use LoRa packet sniffer.
 
+## Building
+To build the RNode Firmware, `arduino-cli` needs to be installed and configured:
+1. Install arduino-cli following the instructions at https://arduino.github.io/arduino-cli/0.20/installation/
+2. Setup the RNode environment
+- Add the RNode json file
+  `arduino-cli config init --additional-urls "https://dl.espressif.com/dl/package_esp32_index.json,http://unsigned.io/arduino/package_unsignedio_UnsignedBoards_index.json"`
+- Install the arduino:avr core 
+  `arduino-cli core install arduino:avr`
+3. Build RNode firmware with `make firmware`. Alternatively, if make is not available on your system, you can also execute the `arduino-cli` commands from the Makefile directly.
+
 ## Support RNode Development
 You can help support the continued development of open, free and private communications systems by donating via one of the following channels:
 
